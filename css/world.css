@@ -1,0 +1,288 @@
+/**
+ * World and Environment System Styles
+ */
+
+/* City and Districts */
+.city-map {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.district-card {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    display: flex;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.district-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.district-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.district-info {
+    padding: 1rem;
+    flex: 1;
+}
+
+.district-description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Style for different district types */
+.district-card[data-district-type="residential"] {
+    border-left: 4px solid #28a745;
+}
+
+.district-card[data-district-type="commercial"] {
+    border-left: 4px solid #17a2b8;
+}
+
+.district-card[data-district-type="industrial"] {
+    border-left: 4px solid #6c757d;
+}
+
+.district-card[data-district-type="entertainment"] {
+    border-left: 4px solid #fd7e14;
+}
+
+.district-card[data-district-type="government"] {
+    border-left: 4px solid #007bff;
+}
+
+.district-card[data-district-type="slums"] {
+    border-left: 4px solid #dc3545;
+}
+
+.district-card[data-district-type="noble"] {
+    border-left: 4px solid #9932cc;
+}
+
+.district-card[data-district-type="market"] {
+    border-left: 4px solid #ffc107;
+}
+
+.district-card[data-district-type="military"] {
+    border-left: 4px solid #343a40;
+}
+
+.district-card[data-district-type="magical"] {
+    border-left: 4px solid #20c997;
+}
+
+/* Points of Interest */
+.poi-card {
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.poi-card:hover {
+    transform: translateY(-5px);
+}
+
+.poi-image {
+    height: 160px;
+    object-fit: cover;
+}
+
+.poi-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
+.poi-status.open {
+    background-color: #28a745;
+}
+
+.poi-status.closed {
+    background-color: #dc3545;
+}
+
+/* Weather Icons */
+.weather-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+.weather-icon-large {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    margin: 0 auto 15px;
+}
+
+.weather-sunny { background-image: url('../img/weather/sunny.png'); }
+.weather-cloudy { background-image: url('../img/weather/cloudy.png'); }
+.weather-rainy { background-image: url('../img/weather/rainy.png'); }
+.weather-stormy { background-image: url('../img/weather/stormy.png'); }
+.weather-snowy { background-image: url('../img/weather/snowy.png'); }
+.weather-foggy { background-image: url('../img/weather/foggy.png'); }
+.weather-windy { background-image: url('../img/weather/windy.png'); }
+
+/* Season Icons */
+.season-icon {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.season-spring { background-image: url('../img/seasons/spring.png'); }
+.season-summer { background-image: url('../img/seasons/summer.png'); }
+.season-autumn { background-image: url('../img/seasons/autumn.png'); }
+.season-winter { background-image: url('../img/seasons/winter.png'); }
+
+.current-season {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Day/Night Cycle Visualization */
+.day-cycle {
+    position: relative;
+    height: 60px;
+    background: linear-gradient(to bottom, #87CEEB, #1E90FF 60%, #000033);
+    border-radius: 100px 100px 0 0;
+    margin: 20px 0 5px;
+    overflow: hidden;
+}
+
+.sun-position {
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.5);
+    transform: translateY(50%);
+    margin-left: -15px;
+    transition: left 0.5s ease-in-out;
+}
+
+.moon-position {
+    position: absolute;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #e6e6e6;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 4px rgba(230, 230, 230, 0.3);
+    transform: translateY(50%);
+    margin-left: -12.5px;
+    transition: left 0.5s ease-in-out;
+}
+
+.horizon {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+}
+
+.sunrise, .sunset {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: 8px;
+    background-color: orange;
+    transform: translateX(-50%);
+}
+
+.time-indicators {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+}
+
+/* Restaurant Menu Items */
+.menu-item {
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.menu-item.food {
+    border-left-color: #28a745;
+}
+
+.menu-item.drink {
+    border-left-color: #17a2b8;
+}
+
+.menu-item.special {
+    border-left-color: #fd7e14;
+}
+
+/* Park Activities */
+.activity-card {
+    height: 100%;
+    transition: all 0.2s;
+}
+
+.activity-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.activity-card.unavailable {
+    opacity: 0.7;
+}
+
+/* Weather and Time Display in Header */
+.weather-display {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.weather-display .weather-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.current-time {
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .district-card {
+        flex-direction: column;
+    }
+    
+    .district-image {
+        width: 100%;
+        height: 180px;
+    }
+} 
